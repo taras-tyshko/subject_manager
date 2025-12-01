@@ -331,7 +331,7 @@ defmodule SubjectManager.SubjectsTest do
       # Search for "Test" should find "Test Player"
       results = Subjects.list_subjects(%{q: "Test"})
 
-      assert length(results) >= 1
+      refute Enum.empty?(results)
       assert Enum.any?(results, &(&1.name == "Test Player"))
     end
 
@@ -385,7 +385,7 @@ defmodule SubjectManager.SubjectsTest do
 
         results = Subjects.list_subjects(%{position: Atom.to_string(position)})
 
-        assert length(results) >= 1
+        refute Enum.empty?(results)
         assert Enum.any?(results, &(&1.id == subject.id))
       end
     end
