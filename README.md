@@ -1,11 +1,10 @@
 # Subject Manager
 
 [![CI](https://github.com/taras-tyshko/subject_manager/actions/workflows/ci.yml/badge.svg)](https://github.com/taras-tyshko/subject_manager/actions)
-[![Elixir](https://img.shields.io/badge/Elixir-1.17.3-purple.svg)](https://elixir-lang.org)
-[![Phoenix](https://img.shields.io/badge/Phoenix-1.7.14-orange.svg)](https://www.phoenixframework.org)
-[![Coverage](https://img.shields.io/badge/Coverage-78.81%25-yellow.svg)](https://github.com/taras-tyshko/subject_manager)
 
 A Phoenix LiveView application for managing football players (subjects) with advanced filtering, detailed profiles, and full CRUD administration capabilities.
+
+**Tech Stack:** Elixir 1.17.3 • Phoenix 1.7.14 • LiveView 1.0.5 • SQLite3 • Tailwind CSS
 
 ## Features
 
@@ -27,70 +26,24 @@ A Phoenix LiveView application for managing football players (subjects) with adv
 - **Flash notifications**: Success/error feedback for all operations
 - **Form validation**: Comprehensive validation with helpful error messages
 
-## Technology Stack
+## Getting Started
 
-- **Elixir** 1.17.2 / OTP 26
-- **Phoenix Framework** 1.7.14
-- **Phoenix LiveView** 1.0.0-rc.1 - Real-time interactivity without JavaScript
-- **Ecto** 3.10 with SQLite3 - Database management
-- **Tailwind CSS** 0.2 - Modern, utility-first styling
-- **esbuild** 0.8 - Asset bundling
+### Installation
 
-## Prerequisites
-
-### Required Software
-
-1. **ASDF** (recommended) or manual installation of:
-   - Erlang 26.2.5
-   - Elixir 1.17.2
-   - Node.js 23.6.1
-
-### Install ASDF (macOS)
+**Recommended:** Use [asdf](https://asdf-vm.com) to install all dependencies:
 
 ```bash
-brew install asdf
-```
-
-For other platforms, see [ASDF installation guide](https://asdf-vm.com/guide/getting-started.html).
-
-## Setup Instructions
-
-### 1. Install Language Versions
-
-```bash
-# Add ASDF plugins
-asdf plugin-add elixir
-asdf plugin-add erlang
-asdf plugin-add nodejs
-
-# Install versions (defined in .tool-versions)
+# Install Elixir, Erlang, and Node.js (versions defined in .tool-versions)
 asdf install
-```
 
-### 2. Install Dependencies & Setup Database
-
-```bash
-# Install Elixir dependencies and setup database
+# Setup project
 mix setup
-```
 
-This command will:
-- Install all dependencies
-- Create the database
-- Run migrations
-- Seed the database with sample data (12 football players)
-
-### 3. Start the Server
-
-```bash
-# Start Phoenix server
+# Start the server
 mix phx.server
-
-# Or start with interactive Elixir shell
-iex -S mix phx.server
 ```
 
-The application will be available at **http://localhost:4000**
+Visit **http://localhost:4000** to see the application.
 
 ## Usage Guide
 
@@ -143,7 +96,7 @@ lib/
 │   │   │   └── show.ex         # Subject detail page
 │   │   └── admin_live/
 │   │       ├── index.ex        # Admin panel with table
-│   │       └── form_component.ex  # Create/Edit form
+│   │       └── form.ex         # Create/Edit form page
 │   ├── components/
 │   │   ├── core_components.ex  # Phoenix default components
 │   │   └── custom_components.ex   # Custom badge component
@@ -176,9 +129,6 @@ priv/
 ### Running Tests
 
 ```bash
-# Run all tests
-mix test
-
 # Run with coverage report
 mix test --cover
 ```
@@ -186,30 +136,11 @@ mix test --cover
 ### Code Quality
 
 ```bash
-# Format code
-mix format
-
 # Check formatting
 mix format --check-formatted
 
 # Compile with warnings as errors
 mix compile --warnings-as-errors
-```
-
-### Database Operations
-
-```bash
-# Reset database (drop, create, migrate, seed)
-mix ecto.reset
-
-# Create a new migration
-mix ecto.gen.migration migration_name
-
-# Run migrations
-mix ecto.migrate
-
-# Rollback last migration
-mix ecto.rollback
 ```
 
 ## Continuous Integration
@@ -236,38 +167,21 @@ See `.github/workflows/ci.yml` for configuration details.
 
 ### Design Decisions
 
-1. **LiveView over JavaScript**: Chose Phoenix LiveView for real-time updates without complex frontend frameworks
-2. **URL-based state**: Filters persist in URL parameters for bookmarking and sharing
-3. **Modal forms**: Edit/create operations use modals for better UX
-4. **Confirmation dialogs**: Native browser confirms for destructive actions
-5. **SQLite for development**: Lightweight database for easy local development
+1. **LiveView over JavaScript**: Real-time updates without complex frontend frameworks
+2. **URL-based state**: Filters persist in URL for easy bookmarking and sharing
+3. **Dedicated form pages**: Create/edit operations on separate pages for clarity
+4. **Confirmation dialogs**: Browser confirms for destructive actions (delete)
+5. **SQLite for development**: Lightweight database for easy setup
 6. **Tailwind CSS**: Utility-first styling for rapid development
+7. **Comprehensive testing**: 152 tests with 78.81% code coverage
 
-### Known Limitations
+### Test Coverage
 
-- No authentication system (admin panel is publicly accessible)
-- No image upload functionality (image paths must be provided manually)
-- SQLite database (suitable for development, consider PostgreSQL for production)
-- No pagination (works well with current dataset size)
-
-## Production Deployment
-
-For production deployment, consider:
-
-1. Switch to PostgreSQL database
-2. Add authentication/authorization for admin panel
-3. Implement image upload functionality
-4. Add pagination for large datasets
-5. Configure proper environment variables
-6. Set up SSL/HTTPS
-7. Configure production secret key base
-
-See [Phoenix deployment guide](https://hexdocs.pm/phoenix/deployment.html) for more details.
+- ✅ **100%** coverage on all LiveView modules
+- ✅ **100%** coverage on Subject schema and validations
+- ✅ **95.83%** coverage on Subjects context
+- ✅ **152 tests** total (unit, integration, LiveView)
 
 ## License
 
 This project is part of an interview assessment.
-
-## Contact
-
-For questions or clarifications, please refer to `QUESTIONS_FOR_CLIENT.md`.
