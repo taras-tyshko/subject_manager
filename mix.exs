@@ -36,7 +36,7 @@ defmodule SubjectManager.MixProject do
       # Phoenix Framework
       {:phoenix, "~> 1.7.14"},
       {:phoenix_html, "~> 4.1"},
-      {:phoenix_live_view, "~> 1.0.0", override: true},
+      {:phoenix_live_view, "~> 1.0.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_dashboard, "~> 0.8.3"},
 
@@ -68,7 +68,7 @@ defmodule SubjectManager.MixProject do
       # Web Server
       {:bandit, "~> 1.5"},
 
-      # Testing
+      # Testing - required by Phoenix.LiveViewTest
       {:floki, ">= 0.30.0", only: :test},
 
       # Code Quality

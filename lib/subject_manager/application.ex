@@ -8,13 +8,15 @@ defmodule SubjectManager.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      # Start Telemetry
       SubjectManagerWeb.Telemetry,
+      # Start the Ecto repository
       SubjectManager.Repo,
+      # Start DNS cluster for clustering support
       {DNSCluster, query: Application.get_env(:subject_manager, :dns_cluster_query) || :ignore},
+      # Start the PubSub system for publishing and subscribing to events
       {Phoenix.PubSub, name: SubjectManager.PubSub},
-      # Start a worker by calling: SubjectManager.Worker.start_link(arg)
-      # {SubjectManager.Worker, arg},
-      # Start to serve requests, typically the last entry
+      # Start the Phoenix endpoint to handle HTTP requests
       SubjectManagerWeb.Endpoint
     ]
 

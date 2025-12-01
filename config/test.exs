@@ -21,7 +21,6 @@ config :subject_manager, SubjectManagerWeb.Endpoint,
 
 # In test we don't send emails
 
-
 # Print only warnings and errors during test
 config :logger, level: :warning
 
