@@ -12,8 +12,6 @@ defmodule SubjectManager.Application do
       SubjectManager.Repo,
       {DNSCluster, query: Application.get_env(:subject_manager, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: SubjectManager.PubSub},
-      # Start the Finch HTTP client for sending emails
-      {Finch, name: SubjectManager.Finch},
       # Start a worker by calling: SubjectManager.Worker.start_link(arg)
       # {SubjectManager.Worker, arg},
       # Start to serve requests, typically the last entry
