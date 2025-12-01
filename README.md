@@ -1,6 +1,9 @@
 # Subject Manager
 
-[![CI](https://github.com/YOUR_USERNAME/elixir_liveview_interview/workflows/CI/badge.svg)](https://github.com/YOUR_USERNAME/elixir_liveview_interview/actions)
+[![CI](https://github.com/taras-tyshko/subject_manager/actions/workflows/ci.yml/badge.svg)](https://github.com/taras-tyshko/subject_manager/actions)
+[![Elixir](https://img.shields.io/badge/Elixir-1.17.3-purple.svg)](https://elixir-lang.org)
+[![Phoenix](https://img.shields.io/badge/Phoenix-1.7.14-orange.svg)](https://www.phoenixframework.org)
+[![Coverage](https://img.shields.io/badge/Coverage-78.81%25-yellow.svg)](https://github.com/taras-tyshko/subject_manager)
 
 A Phoenix LiveView application for managing football players (subjects) with advanced filtering, detailed profiles, and full CRUD administration capabilities.
 
