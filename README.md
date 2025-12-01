@@ -139,6 +139,9 @@ mix test --cover
 # Check formatting
 mix format --check-formatted
 
+# Run Credo static analysis
+mix credo --strict
+
 # Compile with warnings as errors
 mix compile --warnings-as-errors
 ```
@@ -148,9 +151,10 @@ mix compile --warnings-as-errors
 This project uses GitHub Actions for CI/CD:
 
 - ✅ Automated testing on every push/PR
-- ✅ Code formatting checks
+- ✅ Code formatting checks (`mix format`)
+- ✅ Static code analysis (`mix credo --strict`)
 - ✅ Compilation with warnings as errors
-- ✅ Test coverage reporting
+- ✅ Test coverage reporting (78.75%, threshold: 75%)
 - ✅ Dependency checks
 
 See `.github/workflows/ci.yml` for configuration details.
@@ -173,13 +177,14 @@ See `.github/workflows/ci.yml` for configuration details.
 4. **Confirmation dialogs**: Browser confirms for destructive actions (delete)
 5. **SQLite for development**: Lightweight database for easy setup
 6. **Tailwind CSS**: Utility-first styling for rapid development
-7. **Comprehensive testing**: 152 tests with 78.81% code coverage
+7. **Comprehensive testing**: 152 tests with 78.75% code coverage (threshold: 75%)
 
 ### Test Coverage
 
 - ✅ **100%** coverage on all LiveView modules
 - ✅ **100%** coverage on Subject schema and validations
 - ✅ **95.83%** coverage on Subjects context
+- ✅ **78.75%** total coverage (business logic: ~100%, infrastructure: varies)
 - ✅ **152 tests** total (unit, integration, LiveView)
 
 ## License
