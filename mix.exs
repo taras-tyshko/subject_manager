@@ -72,7 +72,8 @@ defmodule SubjectManager.MixProject do
       {:floki, ">= 0.30.0", only: :test},
 
       # Code Quality
-      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+      {:sobelow, "~> 0.13", only: [:dev, :test], runtime: false}
     ]
   end
 

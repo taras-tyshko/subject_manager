@@ -142,6 +142,9 @@ mix format --check-formatted
 # Run Credo static analysis
 mix credo --strict
 
+# Run Sobelow security analysis
+mix sobelow --config
+
 # Compile with warnings as errors
 mix compile --warnings-as-errors
 ```
@@ -153,6 +156,7 @@ This project uses GitHub Actions for CI/CD:
 - ✅ Automated testing on every push/PR
 - ✅ Code formatting checks (`mix format`)
 - ✅ Static code analysis (`mix credo --strict`)
+- ✅ Security analysis (`mix sobelow --config`)
 - ✅ Compilation with warnings as errors
 - ✅ Test coverage reporting (78.75%, threshold: 75%)
 - ✅ Dependency checks
